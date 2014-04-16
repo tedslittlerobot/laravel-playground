@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', function()
+Route::get('/', ['before' => 'asset:gumby', function()
 {
+	Asset::activate('jquery-ui');
+
 	return View::make('hello');
-});
+}]);
